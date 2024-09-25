@@ -1,164 +1,64 @@
-# Welcome to your new ignited app!
+# User Explorer App
 
-[![CircleCI](https://circleci.com/gh/infinitered/ignite.svg?style=svg)](https://circleci.com/gh/infinitered/ignite)
+A React Native application built using Expo, demonstrating infinite scrolling of user data fetched from DummyJSON API, along with post details for individual users.
 
-## The latest and greatest boilerplate for Infinite Red opinions
+## 📱 Screenshots
 
-This is the boilerplate that [Infinite Red](https://infinite.red) uses as a way to test bleeding-edge changes to our React Native stack.
+![Splash Screen](./screenshots/user_list.png)
+![Posts Screen](./screenshots/posts_list.png)
+![User List Screen](./screenshots/user_list.png)
+![Posts Screen](./screenshots/posts_list.png)
 
-Currently includes:
+## 📥 APK Download
 
-- React Native
-- React Navigation
-- MobX State Tree
-- TypeScript
-- And more!
+[Download the APK](./path-to-your-apk-file.apk)
 
-## Quick Start
+## 🚀 Features
 
-The Ignite boilerplate project's structure will look similar to this:
+- **User List**: Fetch and display a paginated list of users with infinite scrolling.
+- **User Posts**: Click on a user to view their posts, with post titles and body details.
+- **No Posts Found Handling**: Gracefully handles cases where users don't have any posts, showing their basic information and a "No posts found" message.
+- **Loading Indicators**: Displays loading indicators while fetching data and during infinite scrolls.
+- **Responsive UI**: The UI is responsive and adapts to different screen sizes.
 
-```
-ignite-project
-├── app
-│   ├── components
-│   ├── config
-│   ├── i18n
-│   ├── models
-│   ├── navigators
-│   ├── screens
-│   ├── services
-│   ├── theme
-│   ├── utils
-│   └── app.tsx
-├── assets
-│   ├── icons
-│   └── images
-├── test
-│   ├── __snapshots__
-│   ├── mockFile.ts
-│   └── setup.ts
-├── README.md
-├── android
-│   ├── app
-│   ├── build.gradle
-│   ├── gradle
-│   ├── gradle.properties
-│   ├── gradlew
-│   ├── gradlew.bat
-│   ├── keystores
-│   └── settings.gradle
-├── ignite
-│   └── templates
-|       |── app-icon
-│       ├── component
-│       ├── model
-│       ├── navigator
-│       └── screen
-├── index.js
-├── ios
-│   ├── IgniteProject
-│   ├── IgniteProject-tvOS
-│   ├── IgniteProject-tvOSTests
-│   ├── IgniteProject.xcodeproj
-│   └── IgniteProjectTests
-├── .env
-└── package.json
+## 🛠️ Tech Stack
 
-```
+- **React Native**: Core framework for building the cross-platform mobile app.
+- **Expo**: For easy setup and building of the React Native app.
+- **MobX-State-Tree**: State management for handling app-wide data efficiently.
+- **React Navigation**: Navigation library for managing navigation between screens.
+- **Axios**: For making HTTP requests to fetch data from the DummyJSON API.
+- **DummyJSON API**: Source of user and post data for the app.
+- **TypeScript**: Type-safe code for improved developer experience.
 
-### ./app directory
+## ⚙️ Setup & Installation
 
-Included in an Ignite boilerplate project is the `app` directory. This is a directory you would normally have to create when using vanilla React Native.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/user-explorer-app.git
+   cd user-explorer-app
+   npm install
+   npm expo start
 
-The inside of the `app` directory looks similar to the following:
+## 🔗 API Reference
 
-```
-app
-├── components
-├── config
-├── i18n
-├── models
-├── navigators
-├── screens
-├── services
-├── theme
-├── utils
-└── app.tsx
-```
+### Get All Users
+**Endpoint**: `GET https://dummyjson.com/users?limit={limit}&skip={skip}`
 
-**components**
-This is where your reusable components live which help you build your screens.
+### Get Posts for a User
+**Endpoint**: `GET https://dummyjson.com/users/{userId}/posts`
 
-**i18n**
-This is where your translations will live if you are using `react-native-i18n`.
+## 💡 How It Works
+- The app fetches users from DummyJSON API and displays them in a list.
+- When a user is clicked, the app fetches posts from DummyJSON API.
+- Infinite scrolling is implemented to load more data as the user scrolls down.
 
-**models**
-This is where your app's models will live. Each model has a directory which will contain the `mobx-state-tree` model file, test file, and any other supporting files like actions, types, etc.
+## ✍️ Author
+- Nidhish
 
-**navigators**
-This is where your `react-navigation` navigators will live.
+## 🎉 Acknowledgements
+- Thanks to the DummyJSON API for providing the sample data used in this project.
 
-**screens**
-This is where your screen components will live. A screen is a React component which will take up the entire screen and be part of the navigation hierarchy. Each screen will have a directory containing the `.tsx` file, along with any assets or other helper files.
+## 🧩 Contributing
+Feel free to fork this project, create a feature branch, and submit pull requests!
 
-**services**
-Any services that interface with the outside world will live here (think REST APIs, Push Notifications, etc.).
-
-**theme**
-Here lives the theme for your application, including spacing, colors, and typography.
-
-**utils**
-This is a great place to put miscellaneous helpers and utilities. Things like date helpers, formatters, etc. are often found here. However, it should only be used for things that are truly shared across your application. If a helper or utility is only used by a specific component or model, consider co-locating your helper with that component or model.
-
-**app.tsx** This is the entry point to your app. This is where you will find the main App component which renders the rest of the application.
-
-### ./assets directory
-
-This directory is designed to organize and store various assets, making it easy for you to manage and use them in your application. The assets are further categorized into subdirectories, including `icons` and `images`:
-
-```
-assets
-├── icons
-└── images
-```
-
-**icons**
-This is where your icon assets will live. These icons can be used for buttons, navigation elements, or any other UI components. The recommended format for icons is PNG, but other formats can be used as well.
-
-Ignite comes with a built-in `Icon` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-Icon.md).
-
-**images**
-This is where your images will live, such as background images, logos, or any other graphics. You can use various formats such as PNG, JPEG, or GIF for your images.
-
-Another valuable built-in component within Ignite is the `AutoImage` component. You can find detailed usage instructions in the [docs](https://github.com/infinitered/ignite/blob/master/docs/Components-AutoImage.md).
-
-How to use your `icon` or `image` assets:
-
-```
-import { Image } from 'react-native';
-
-const MyComponent = () => {
-  return (
-    <Image source={require('../assets/images/my_image.png')} />
-  );
-};
-```
-
-### ./ignite directory
-
-The `ignite` directory stores all things Ignite, including CLI and boilerplate items. Here you will find templates you can customize to help you get started with React Native.
-
-### ./test directory
-
-This directory will hold your Jest configs and mocks.
-
-## Running Maestro end-to-end tests
-
-Follow our [Maestro Setup](https://ignitecookbook.com/docs/recipes/MaestroSetup) recipe from the [Ignite Cookbook](https://ignitecookbook.com/)!
-
-## Previous Boilerplates
-
-- [2018 aka Bowser](https://github.com/infinitered/ignite-bowser)
-- [2017 aka Andross](https://github.com/infinitered/ignite-andross)
-- [2016 aka Ignite 1.0](https://github.com/infinitered/ignite-ir-boilerplate-2016)
