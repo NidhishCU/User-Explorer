@@ -4,7 +4,7 @@ A React Native application built using Expo, demonstrating infinite scrolling of
 
 ## 📱 Screenshots
 
-![Splash Screen](![WhatsApp Image 2024-09-25 at 08 22 31_8fc421a9](https://github.com/user-attachments/assets/d6f6092a-c0b2-468e-87f0-0217615b56be | width=300)
+![Splash Screen](![WhatsApp Image 2024-09-25 at 08 22 31_8fc421a9](https://github.com/user-attachments/assets/d6f6092a-c0b2-468e-87f0-0217615b56be)
 )
 ![Loding](![WhatsApp Image 2024-09-25 at 08 22 31_e52a2aee](https://github.com/user-attachments/assets/cd14bbeb-e509-4760-8307-9ba616c09bad)
 )
