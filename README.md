@@ -15,7 +15,7 @@ A React Native application built using Expo, demonstrating infinite scrolling of
 ![No Posts by user]()
 ## 📥 APK Download
 
-[Download the APK]([./path-to-your-apk-file.apk](https://drive.google.com/file/d/1MlqS5j8i8OwBZOTUiw9GTLAumJyRHJY8/view?usp=sharing))
+[Download the APK](https://drive.google.com/file/d/1MlqS5j8i8OwBZOTUiw9GTLAumJyRHJY8/view?usp=sharing)
 
 ## 🚀 Features
 
