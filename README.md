@@ -4,15 +4,11 @@ A React Native application built using Expo, demonstrating infinite scrolling of
 
 ## 📱 Screenshots
 
-![Splash Screen](![WhatsApp Image 2024-09-25 at 08 22 31_8fc421a9](https://github.com/user-attachments/assets/d6f6092a-c0b2-468e-87f0-0217615b56be)
-)
-![Loding](![WhatsApp Image 2024-09-25 at 08 22 31_e52a2aee](https://github.com/user-attachments/assets/cd14bbeb-e509-4760-8307-9ba616c09bad)
-)
-![User List Screen](![WhatsApp Image 2024-09-25 at 08 20 29_95635a0f](https://github.com/user-attachments/assets/d935892f-0166-4ecd-8c1e-b09f35ef2458)
-)
-![Posts Screen](![WhatsApp Image 2024-09-25 at 08 20 30_f7e493a2](https://github.com/user-attachments/assets/9bff6e79-cfff-40a2-a740-8bd6e537d424)
-)
-![No Posts by user]()
+![Splash Screen](https://github.com/user-attachments/assets/d6f6092a-c0b2-468e-87f0-0217615b56be | width=300)
+![Loading](https://github.com/user-attachments/assets/cd14bbeb-e509-4760-8307-9ba616c09bad | width=300)
+![User List Screen](https://github.com/user-attachments/assets/d935892f-0166-4ecd-8c1e-b09f35ef2458 | width=300)
+![Posts Screen](https://github.com/user-attachments/assets/9bff6e79-cfff-40a2-a740-8bd6e537d424 | width=300)
+![No Posts by User](https://your-link-to-no-posts-image | width=300)
 ## 📥 APK Download
 
 [Download the APK](./path-to-your-apk-file.apk)
