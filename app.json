@@ -7,9 +7,9 @@
     "scheme": "user-explorer",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/app-icon-all.png",
+    "icon": "./assets/images/BlackGold.png",
     "splash": {
-      "image": "./assets/images/splash-logo-all.png",
+      "image": "./assets/images/BlackGold.png",
       "resizeMode": "contain",
       "backgroundColor": "#191015"
     },
@@ -21,25 +21,25 @@
       "**/*"
     ],
     "android": {
-      "icon": "./assets/images/app-icon-android-legacy.png",
+      "icon": "./assets/images/BlackGold.png",
       "package": "com.userexplorer",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/app-icon-android-adaptive-foreground.png",
-        "backgroundImage": "./assets/images/app-icon-android-adaptive-background.png"
+        "foregroundImage": "./assets/images/BlackGold.png",
+        "backgroundImage": "./assets/images/BlackGold.png"
       },
       "splash": {
-        "image": "./assets/images/splash-logo-android-universal.png",
+        "image": "./assets/images/BlackGold.png",
         "resizeMode": "contain",
         "backgroundColor": "#191015"
       }
     },
     "ios": {
-      "icon": "./assets/images/app-icon-ios.png",
+      "icon": "./assets/images/BlackGold.png",
       "supportsTablet": true,
       "bundleIdentifier": "com.userexplorer",
       "splash": {
-        "image": "./assets/images/splash-logo-ios-mobile.png",
-        "tabletImage": "./assets/images/splash-logo-ios-tablet.png",
+        "image": "./assets/images/BlackGold.png",
+        "tabletImage": "./assets/images/BlackGold.png",
         "resizeMode": "contain",
         "backgroundColor": "#191015"
       }

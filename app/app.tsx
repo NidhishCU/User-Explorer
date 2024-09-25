@@ -1,111 +1,42 @@
-/* eslint-disable import/first */
-/**
- * Welcome to the main entry point of the app. In this file, we'll
- * be kicking off our app.
- *
- * Most of this file is boilerplate and you shouldn't need to modify
- * it very often. But take some time to look through and understand
- * what is going on here.
- *
- * The app navigation resides in ./app/navigators, so head over there
- * if you're interested in adding screens and navigators.
- */
-if (__DEV__) {
-  // Load Reactotron in development only.
-  // Note that you must be using metro's `inlineRequires` for this to work.
-  // If you turn it off in metro.config.js, you'll have to manually import it.
-  require("./devtools/ReactotronConfig.ts")
-}
-import "./utils/gestureHandler"
-import "./i18n"
-import "./utils/ignoreWarnings"
-import { useFonts } from "expo-font"
-import React from "react"
-import { initialWindowMetrics, SafeAreaProvider } from "react-native-safe-area-context"
-import * as Linking from "expo-linking"
-import { useInitialRootStore } from "./models"
-import { AppNavigator, useNavigationPersistence } from "./navigators"
-import { ErrorBoundary } from "./screens/ErrorScreen/ErrorBoundary"
-import * as storage from "./utils/storage"
-import { customFontsToLoad } from "./theme"
-import Config from "./config"
+import React, { useEffect, useState } from "react"
+import { SafeAreaProvider } from "react-native-safe-area-context"
+import * as SplashScreen from 'expo-splash-screen' // Splash screen control
+import { AppNavigator } from "./navigators" // Import your navigator that includes Users screen
+import { ErrorBoundary } from "./screens/ErrorScreen/ErrorBoundary" // For catching app errors
+import Config from "./config" // App config
 
-export const NAVIGATION_PERSISTENCE_KEY = "NAVIGATION_STATE"
+// Prevent the splash screen from auto-hiding
+SplashScreen.preventAutoHideAsync()
 
-// Web linking configuration
-const prefix = Linking.createURL("/")
-const config = {
-  screens: {
-    Login: {
-      path: "",
-    },
-    Welcome: "welcome",
-    Demo: {
-      screens: {
-        DemoShowroom: {
-          path: "showroom/:queryIndex?/:itemIndex?",
-        },
-        DemoDebug: "debug",
-        DemoPodcastList: "podcast",
-        DemoCommunity: "community",
-      },
-    },
-  },
-}
+function App() {
+  const [appReady, setAppReady] = useState(false) // State to track app readiness
 
-interface AppProps {
-  hideSplashScreen: () => Promise<boolean>
-}
+  // useEffect to hide the splash screen after 1 second and show the main app
+  useEffect(() => {
+    const prepareApp = async () => {
+      // Simulate some startup tasks (like loading data)
+      await new Promise(resolve => setTimeout(resolve, 1000)) // 1-second delay
 
-/**
- * This is the root component of our app.
- * @param {AppProps} props - The props for the `App` component.
- * @returns {JSX.Element} The rendered `App` component.
- */
-function App(props: AppProps) {
-  const { hideSplashScreen } = props
-  const {
-    initialNavigationState,
-    onNavigationStateChange,
-    isRestored: isNavigationStateRestored,
-  } = useNavigationPersistence(storage, NAVIGATION_PERSISTENCE_KEY)
+      // Once the app is ready, hide the splash screen
+      await SplashScreen.hideAsync()
 
-  const [areFontsLoaded, fontLoadError] = useFonts(customFontsToLoad)
+      // Mark the app as ready
+      setAppReady(true)
+    }
 
-  const { rehydrated } = useInitialRootStore(() => {
-    // This runs after the root store has been initialized and rehydrated.
+    prepareApp() // Call the async function
+  }, [])
 
-    // If your initialization scripts run very fast, it's good to show the splash screen for just a bit longer to prevent flicker.
-    // Slightly delaying splash screen hiding for better UX; can be customized or removed as needed,
-    // Note: (vanilla Android) The splash-screen will not appear if you launch your app via the terminal or Android Studio. Kill the app and launch it normally by tapping on the launcher icon. https://stackoverflow.com/a/69831106
-    // Note: (vanilla iOS) You might notice the splash-screen logo change size. This happens in debug/development mode. Try building the app for release.
-    setTimeout(hideSplashScreen, 500)
-  })
-
-  // Before we show the app, we have to wait for our state to be ready.
-  // In the meantime, don't render anything. This will be the background
-  // color set in native by rootView's background color.
-  // In iOS: application:didFinishLaunchingWithOptions:
-  // In Android: https://stackoverflow.com/a/45838109/204044
-  // You can replace with your own loading component if you wish.
-  if (!rehydrated || !isNavigationStateRestored || (!areFontsLoaded && !fontLoadError)) {
+  if (!appReady) {
+    // While the app is not ready, show nothing (since the splash screen is shown)
     return null
   }
 
-  const linking = {
-    prefixes: [prefix],
-    config,
-  }
-
-  // otherwise, we're ready to render the app
   return (
-    <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+    <SafeAreaProvider>
       <ErrorBoundary catchErrors={Config.catchErrors}>
-        <AppNavigator
-          linking={linking}
-          initialState={initialNavigationState}
-          onStateChange={onNavigationStateChange}
-        />
+        {/* Load the main app navigator which has the Users component */}
+        <AppNavigator />
       </ErrorBoundary>
     </SafeAreaProvider>
   )
